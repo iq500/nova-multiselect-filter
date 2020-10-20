@@ -85,9 +85,13 @@ export default {
   background-color: #fff;
 }
 
-.v-select .vs__selected {
+.vs__selected {
   background-color: #4099de;
   color: #fff;
+}
+
+.v-select .vs__deselect > svg {
+  fill: #fff;
 }
 
 .vs__dropdown-menu {
@@ -98,8 +102,8 @@ export default {
   background: #4099de;
 }
 
-.v-select .vs__deselect > svg {
-  fill: #fff;
+.vs__dropdown-option--selected {
+  display: none;
 }
 </style>
 
