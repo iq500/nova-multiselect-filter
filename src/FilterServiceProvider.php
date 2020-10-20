@@ -8,6 +8,11 @@ use Illuminate\Support\ServiceProvider;
 
 class FilterServiceProvider extends ServiceProvider
 {
+    protected const SCRIPT_FILE = __DIR__ . '/../dist/js/filter.js';
+    protected static $availableTranslations = [
+        'ru'
+    ];
+
     /**
      * Bootstrap any application services.
      *
@@ -17,6 +22,20 @@ class FilterServiceProvider extends ServiceProvider
     {
         Nova::serving(function (ServingNova $event) {
             Nova::script('multiselect-filter', __DIR__.'/../dist/js/filter.js');
+
+            $translations = FilterServiceProvider::getTranslationsFromAppLocale();
+            if(!is_null($translations))
+                Nova::translations($translations);
         });
+    }
+
+    public static function getTranslationsFromAppLocale()
+    {
+        $locale = App::getLocale();
+
+        if(in_array($locale, static::$availableTranslations))
+            return __DIR__ . "/../resources/lang/$locale.json";
+
+        return null;
     }
 }
