@@ -5,7 +5,7 @@
     <div class="p-2">
       <v-select
           appendToBody
-          v-model="options"
+          :value="values"
           :options="this.filter.options"
           :placeholder="placeholder"
           :multiple="true"
@@ -34,27 +34,11 @@ export default {
       required: true,
     },
   },
-  mounted: function () {
-    if (this.filter.currentValue === undefined || this.filter.currentValue === '') {
-      return;
-    }
-    this.filter.options.forEach(option => {
-      if (this.filter.currentValue.indexOf(option.value) === -1) {
-        return;
-      }
-      this.options.push(option);
-    });
-  },
-  data: function () {
-    return {
-      options: [],
-    };
-  },
   methods: {
-    handleChange: function () {
+    handleChange: function (options) {
       this.$store.commit(`${this.resourceName}/updateFilterState`, {
         filterClass: this.filterKey,
-        value: this.values,
+        value: options.map((option) => option.value),
       });
       this.$emit('change');
     },
@@ -63,19 +47,20 @@ export default {
     filter: function () {
       return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey);
     },
-    values: function () {
-      const values = [];
-      this.options.forEach(option => {
-        values.push(option.value);
-      });
-      return values.length ? values : '';
-    },
     noOptionsLabel: function () {
       return this.filter.noOptionsLabel || this.__('Sorry, no matching options.');
     },
     placeholder: function () {
       return this.filter.placeholder || this.__('Select option');
     },
+    values: function () {
+      if (this.filter.currentValue === undefined || this.filter.currentValue === '') {
+        return [];
+      }
+      return this.filter.options.filter(option => {
+        return this.filter.currentValue.indexOf(option.value) !== -1;
+      });
+    }
   },
 };
 </script>
