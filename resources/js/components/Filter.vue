@@ -85,7 +85,7 @@ export default {
   background-color: #fff;
 }
 
-.vs__selected {
+.v-select .vs__selected {
   background-color: #4099de;
   color: #fff;
 }
@@ -98,11 +98,11 @@ export default {
   width: min-content !important;
 }
 
-.vs__dropdown-option--highlight {
+.vs__dropdown-menu .vs__dropdown-option--highlight {
   background: #4099de;
 }
 
-.vs__dropdown-option--selected {
+.vs__dropdown-menu .vs__dropdown-option--selected {
   display: none;
 }
 </style>
