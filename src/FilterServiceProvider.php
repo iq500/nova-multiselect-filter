@@ -2,6 +2,7 @@
 
 namespace Iq500\Filters;
 
+use Illuminate\Support\Facades\App;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
