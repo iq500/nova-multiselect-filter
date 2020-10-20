@@ -9,6 +9,9 @@
           :options="this.filter.options"
           :placeholder="placeholder"
           :multiple="true"
+          :class="{
+              'v-select--not-empty': this.values.length,
+          }"
           label="name"
           track-by="value"
           @input="handleChange"
@@ -34,6 +37,7 @@ export default {
       required: true,
     },
   },
+
   methods: {
     handleChange: function (options) {
       this.$store.commit(`${this.resourceName}/updateFilterState`, {
@@ -77,6 +81,10 @@ export default {
 
 .v-select .vs__deselect > svg {
   fill: #fff;
+}
+
+.v-select.v-select--not-empty .vs__clear {
+  display: block !important;
 }
 
 .vs__dropdown-menu {
