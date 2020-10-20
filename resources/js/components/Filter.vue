@@ -13,7 +13,7 @@
           track-by="value"
           @input="handleChange"
       >
-        <div slot="no-options">{{noOptionsLabel}}}</div>
+        <div slot="no-options">{{noOptionsLabel}}</div>
       </v-select>
 
     </div>
