@@ -1,6 +1,6 @@
 <?php
 
-namespace rcknr\Nova\Filters;
+namespace Iq500\Filters;
 
 use Laravel\Nova\Filters\Filter;
 

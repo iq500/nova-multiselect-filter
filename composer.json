@@ -1,5 +1,5 @@
 {
-    "name": "rcknr/nova-multiselect-filter",
+    "name": "iq500/nova-multiselect-filter",
     "description": "A Laravel Nova filter that allows multiple selection.",
     "keywords": [
         "laravel",
@@ -18,13 +18,13 @@
     },
     "autoload": {
         "psr-4": {
-            "rcknr\\Nova\\Filters\\": "src/"
+            "Iq500\\Filters\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "rcknr\\Nova\\Filters\\FilterServiceProvider"
+                "Iq500\\Filters\\FilterServiceProvider"
             ]
         }
     },
