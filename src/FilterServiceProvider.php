@@ -9,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
 
 class FilterServiceProvider extends ServiceProvider
 {
-    protected const SCRIPT_FILE = __DIR__ . '/../dist/js/filter.js';
     protected static $availableTranslations = [
         'ru'
     ];
