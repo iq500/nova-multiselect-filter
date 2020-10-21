@@ -12,6 +12,7 @@
           :class="{
               'v-select--not-empty': this.values.length,
           }"
+          class="multiselect-filter"
           label="name"
           track-by="value"
           @input="handleChange"
@@ -68,36 +69,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.v-select {
-  background-color: #fff;
-}
-
-.v-select .vs__selected {
-  background-color: #4099de;
-  color: #fff;
-}
-
-.v-select .vs__deselect > svg {
-  fill: #fff;
-}
-
-.v-select.v-select--not-empty .vs__clear {
-  display: block !important;
-}
-
-.vs__dropdown-menu {
-  width: min-content !important;
-}
-
-.vs__dropdown-menu .vs__dropdown-option--highlight {
-  background: #4099de;
-}
-
-.vs__dropdown-menu .vs__dropdown-option--selected {
-  display: none;
-}
-</style>
-
-<style src="vue-select/dist/vue-select.css"></style>
