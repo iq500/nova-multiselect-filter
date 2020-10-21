@@ -23,6 +23,7 @@ class FilterServiceProvider extends ServiceProvider
     {
         Nova::serving(function (ServingNova $event) {
             Nova::script('multiselect-filter', __DIR__.'/../dist/js/filter.js');
+            Nova::style('multiselect-filter', __DIR__.'/../dist/css/filter.css');
 
             $translations = FilterServiceProvider::getTranslationsFromAppLocale();
             if(!is_null($translations))
